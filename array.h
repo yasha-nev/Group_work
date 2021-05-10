@@ -20,6 +20,9 @@ public:
     {
         delete[] arr;
     }
+    int GetSize(){
+        return size;
+    }
     void Push(){
 
         T *new_arr = new T[size + 1];

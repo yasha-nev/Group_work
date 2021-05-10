@@ -24,6 +24,17 @@ int Patient::GetStatus()
 {
     return status;
 }
+
+int Patient::GetDepartment()
+{
+    return department;
+}
+
+int Patient::GetTimeTreat()
+{
+    return time_treat;
+}
+
 int Patient::GetTimeLeft()
 {
     return time_left;
@@ -62,8 +73,26 @@ void Patient::SetDiagnosis(string a)
 
 void Patient::SetStatus(int a)
 {
-    if (a >=0){
+    if (a >=-1){
         status = a;
+    }
+    else{
+        cout << "Error" << endl;
+    }
+}
+void Patient::SetDepartment(int a)
+{
+    if (a >= -1){
+        department = a;
+    }
+    else{
+        cout << "Error" << endl;
+    }
+}
+void Patient::SetTimeTreat(int a)
+{
+    if (a >= 0){
+        time_treat = a;
     }
     else{
         cout << "Error" << endl;
@@ -86,6 +115,8 @@ ostream& operator <<(ostream &out, const Patient &exc)
     out << "Last Name: " << exc.last_name << endl;
     out << "Diagnosis: " << exc.diagnosis << endl;
     out << "Status: " << exc.status << endl;
+    out << "Department" << exc.department << endl;
+    out << "Time of treatment: " << exc.time_treat << endl;
     out << "Time left: " << exc.time_left << endl;
     return out;
 }
@@ -101,8 +132,13 @@ istream& operator >> (istream &in, Patient &exc)
     cout << "Diagnosis: ";
     in >> exc.diagnosis;
 
-    cout << "Status:  ";
-    in >> exc.status;
+    //cout << "Status:  ";
+    //in >> exc.status;
+    exc.status = 0;
+    exc.department = -1;
+
+    cout << "Time for treatment: ";
+    in >> exc.time_treat;
 
     cout << "Time Left: ";
     in >> exc.time_left;
