@@ -1,4 +1,4 @@
 all:
-	g++ main.cpp department.cpp patient.cpp -o test
+	g++ main.cpp department.cpp button.cpp patient.cpp menu.cpp -o test
 
 

@@ -2,8 +2,8 @@
 
 Patient::Patient()
 {
-
 }
+
 //getters реализация
 string Patient::GetFirstName()
 {
@@ -73,7 +73,7 @@ void Patient::SetDiagnosis(string a)
 
 void Patient::SetStatus(int a)
 {
-    if (a >=-1){
+    if (a >=-1 && a < 3){
         status = a;
     }
     else{
@@ -114,7 +114,10 @@ ostream& operator <<(ostream &out, const Patient &exc)
     out << "First Name: " << exc.first_name << endl;
     out << "Last Name: " << exc.last_name << endl;
     out << "Diagnosis: " << exc.diagnosis << endl;
-    out << "Status: " << exc.status << endl;
+
+    string str[4] = {"died", "not determined", "being treated", "healen"};
+
+    out << "Status: " << str[exc.status + 1] << endl;
     out << "Department" << exc.department << endl;
     out << "Time of treatment: " << exc.time_treat << endl;
     out << "Time left: " << exc.time_left << endl;

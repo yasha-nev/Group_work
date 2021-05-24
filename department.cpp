@@ -2,7 +2,10 @@
 
 Department::Department()
 {
-
+    name = "something";
+    free_places = 5;
+    number_places = 5;
+    index = 0;
 }
 
 //Getters
@@ -87,8 +90,9 @@ istream& operator >> (istream &in, Department &exc)
     cout << "Number of places: ";
     in >> exc.number_places;
 
-    cout << "index:  ";
-    in >> exc.index;
+    exc.index = 0;
+    //cout << "index:  ";
+    //in >> exc.index;
 
     return in;
 }
