@@ -13,10 +13,13 @@ class Menu
 private:
     vector <Patient> p;
     vector <Department> d;
+
 public:
     Menu();
     void PrintPatient();
     void PrintDepartment();
+    void AddPatient();
+    void AddDepartment();
 };
 
 #endif // MENU_H
