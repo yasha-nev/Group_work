@@ -20,6 +20,7 @@ public:
     void PrintDepartment();
     void AddPatient();
     void AddDepartment();
+    void DaySkip();
 };
 
 #endif // MENU_H
