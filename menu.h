@@ -6,7 +6,10 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#define C "cls"
+#include <termios.h>
+#include <unistd.h>
+#include <stdio.h>
+#define C "clear"
 
 using namespace std;
 
@@ -25,6 +28,7 @@ public:
     void DaySkip();
     void HospitalAdmission();
     void StartGame();
+    int getch(void);
 };
 
 #endif // MENU_H

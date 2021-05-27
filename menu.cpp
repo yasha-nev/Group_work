@@ -71,12 +71,12 @@ void Menu::HospitalAdmission()
     cin >> np;
     if ((np <0) || (np >= (int) p.size())){
         cout << "There is no such patient" << endl;
-        system("pause");
+        getch();
         return;
     }
     if (p[np].GetStatus() != 0){
         cout << "The patient is already on another list" << endl;
-        system("pause");
+        getch();
         return;
     }
 
@@ -85,7 +85,7 @@ void Menu::HospitalAdmission()
     cin >> nd;
     if ((nd <0) || (nd >=  d.size())){
         cout << "There is no such department" << endl;
-        system("pause");
+        getch();
         return;
     }
 
@@ -101,17 +101,17 @@ void Menu::HospitalAdmission()
             p[np].SetStatus(1);
             d[nd].SetFreePlaces(d[nd].GetFreePlaces()-1);
             cout << "Patient admitted" << endl;
-            system("pause");
+            getch();
         }
         else{
             cout << "This department cannot admit this patient" << endl;
-            system("pause");
+            getch();
             return;
         }
     }
     else{
         cout << "there are not free places";
-        system("pause");
+        getch();
         return;
     }
 }
@@ -143,9 +143,21 @@ void Menu::StartGame()
     }
 
     cout << "                   START GAME               " << endl;
-    system("pause");
+    getch();
     out.close();
     return;
 
 
+}
+int Menu::getch(void)
+{
+    struct termios oldattr, newattr;
+    int ch;
+    tcgetattr( STDIN_FILENO, &oldattr );
+    newattr = oldattr;
+    newattr.c_lflag &= ~( ICANON | ECHO );
+    tcsetattr( STDIN_FILENO, TCSANOW, &newattr );
+    ch = getchar();
+    tcsetattr( STDIN_FILENO, TCSANOW, &oldattr );
+    return ch;
 }

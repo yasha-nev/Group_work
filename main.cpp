@@ -1,8 +1,7 @@
 #include <iostream>
 #include "menu.h"
 #include "button.h"
-#include <conio.h>
-#define C "cls"
+#define C "clear"
 
 using namespace std;
 
@@ -16,15 +15,15 @@ int main()
     while( a == 0){
         system(C);
         b.PrintButtons();
-        n = getch();
+        n = menu.getch();
         switch(n){
-            case(72):
+            case(65):
                 b.DownCursor();
                 break;
-            case(80):
+            case(66):
                 b.UpCursor();
                 break;
-            case(13):
+            case(10):
                 {
                     int k = b.GetY();
                     switch (k) {
@@ -32,23 +31,23 @@ int main()
                             system(C);
                             menu.PrintDepartment();
                             {
-                            system("pause");
+                            	menu.getch();
                             }
                             break;
                         case(1):
                             system(C);
                             menu.PrintPatient();
-                            {
-                            system("pause");
-                            }
+                            menu.getch();
                             break;
                         case(2):
                             system(C);
                             menu.AddPatient();
+			    menu.getch();
                             break;
                         case(3):
                             system(C);
                             menu.AddDepartment();
+		 	    menu.getch();
                             break;
                         case(4):
                             system(C);
@@ -57,6 +56,7 @@ int main()
                         case(5):
                             system(C);
                             menu.DaySkip();
+			    menu.getch();
                             break;
 
                         case(6):
