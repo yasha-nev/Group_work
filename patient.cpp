@@ -20,6 +20,11 @@ string Patient::GetDiagnosis()
     return diagnosis;
 }
 
+string Patient::GetTypeOfDisease()
+{
+    return type_of_disease;
+}
+
 int Patient::GetStatus()
 {
     return status;
@@ -71,6 +76,16 @@ void Patient::SetDiagnosis(string a)
     }
 }
 
+void Patient::SetTypeOf_disease(string a)
+{
+    if (a != ""){
+        type_of_disease = a;
+    }
+    else{
+        cout << "Error" << endl;
+    }
+}
+
 void Patient::SetStatus(int a)
 {
     if (a >=-1 && a < 3){
@@ -114,11 +129,12 @@ ostream& operator <<(ostream &out, const Patient &exc)
     out << "First Name: " << exc.first_name << endl;
     out << "Last Name: " << exc.last_name << endl;
     out << "Diagnosis: " << exc.diagnosis << endl;
+    out << "Type of disease: " << exc.type_of_disease << endl;
 
     string str[4] = {"died", "not determined", "being treated", "healen"};
 
     out << "Status: " << str[exc.status + 1] << endl;
-    out << "Department" << exc.department << endl;
+    out << "Department: " << exc.department << endl;
     out << "Time of treatment: " << exc.time_treat << endl;
     out << "Time left: " << exc.time_left << endl;
     return out;
@@ -135,8 +151,9 @@ istream& operator >> (istream &in, Patient &exc)
     cout << "Diagnosis: ";
     in >> exc.diagnosis;
 
-    //cout << "Status:  ";
-    //in >> exc.status;
+    cout << "Type of disease: ";
+    in >> exc.type_of_disease;
+
     exc.status = 0;
     exc.department = -1;
 

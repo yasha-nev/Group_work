@@ -4,7 +4,9 @@
 #include "department.h"
 #include "patient.h"
 #include <iostream>
+#include <fstream>
 #include <vector>
+#define C "cls"
 
 using namespace std;
 
@@ -21,6 +23,8 @@ public:
     void AddPatient();
     void AddDepartment();
     void DaySkip();
+    void HospitalAdmission();
+    void StartGame();
 };
 
 #endif // MENU_H

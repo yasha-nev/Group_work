@@ -12,6 +12,7 @@ private:
     string first_name; // Имя
     string last_name; // Фамилия
     string diagnosis; // Диагноз или травма
+    string type_of_disease; // Тип заболевания
     int status; // статус, если -1 - умер, 0 - не определен, 1 - лечится, 2 излечился
     int department; // отделение, которому принадлежит, -1 - значит не принаджлежит ни одному отделению
     int time_treat; // время на лечение
@@ -25,6 +26,7 @@ public:
     string GetFirstName();
     string GetLastName();
     string GetDiagnosis();
+    string GetTypeOfDisease();
     int GetStatus();
     int GetDepartment();
     int GetTimeTreat();
@@ -34,6 +36,7 @@ public:
     void SetFirstName(string a);
     void SetLastName(string a);
     void SetDiagnosis(string a);
+    void SetTypeOf_disease(string a);
     void SetStatus(int a);
     void SetDepartment(int a);
     void SetTimeTreat(int a);

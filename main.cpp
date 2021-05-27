@@ -1,10 +1,9 @@
 #include <iostream>
-#include "patient.h"
-#include "department.h"
 #include "menu.h"
 #include "button.h"
 #include <conio.h>
 #define C "cls"
+
 using namespace std;
 
 int main()
@@ -13,6 +12,7 @@ int main()
     int n;
     Button b;
     Menu menu;
+    menu.StartGame();
     while( a == 0){
         system(C);
         b.PrintButtons();
@@ -32,14 +32,14 @@ int main()
                             system(C);
                             menu.PrintDepartment();
                             {
-                            int p = getch();
+                            system("pause");
                             }
                             break;
                         case(1):
                             system(C);
                             menu.PrintPatient();
                             {
-                            int p = getch();
+                            system("pause");
                             }
                             break;
                         case(2):
@@ -51,6 +51,15 @@ int main()
                             menu.AddDepartment();
                             break;
                         case(4):
+                            system(C);
+                            menu.HospitalAdmission();
+                            break;
+                        case(5):
+                            system(C);
+                            menu.DaySkip();
+                            break;
+
+                        case(6):
                             return 0;
                             break;
                     }

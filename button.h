@@ -7,7 +7,13 @@ using namespace std;
 
 class Button{
 private:
-    string titles[5] = {"PrintDepartment", "PrintPatient", "AddPatient", "AddDepartment", "Exit"};
+    string titles[7] = {"PrintDepartment",
+                        "PrintPatient",
+                        "AddPatient",
+                        "AddDepartment",
+                        "Hospital Admission",
+                        "SkipTime",
+                        "Exit"};
     int y = 0;
 public:
     Button();

@@ -14,5 +14,4 @@ HEADERS += \
         button.h \
         menu.h \
         patient.h\
-        department.h\
-        array.h
+        department.h
