@@ -29,10 +29,8 @@ int main()
                     switch (k) {
                         case(0):
                             system(C);
-                            menu.PrintDepartment();
-                            {
-                            	menu.getch();
-                            }
+                            menu.PrintDepartment();             
+                            menu.getch();     
                             break;
                         case(1):
                             system(C);
@@ -42,12 +40,10 @@ int main()
                         case(2):
                             system(C);
                             menu.AddPatient();
-			    menu.getch();
                             break;
                         case(3):
                             system(C);
                             menu.AddDepartment();
-		 	    menu.getch();
                             break;
                         case(4):
                             system(C);

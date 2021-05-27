@@ -8,6 +8,7 @@ void Menu::PrintPatient()
     for (int i = 0; i < p.size(); i++){
         cout << p[i] << endl;
     }
+    return;
 }
 
 void Menu::PrintDepartment()
@@ -15,6 +16,7 @@ void Menu::PrintDepartment()
     for (int i = 0; i < d.size(); i++){
         cout << d[i] << endl;
     }
+    return;
 }
 
 void Menu::AddPatient()
@@ -22,6 +24,7 @@ void Menu::AddPatient()
     Patient pat;
     cin >> pat;
     p.push_back(pat);
+    cin.get();
 }
 
 void Menu::AddDepartment()
@@ -30,6 +33,7 @@ void Menu::AddDepartment()
     cin >> dep;
     dep.SetIndex(d.size());
     d.push_back(dep);
+    cin.get();
 }
 
 void Menu::DaySkip()
@@ -71,13 +75,15 @@ void Menu::HospitalAdmission()
     cin >> np;
     if ((np <0) || (np >= (int) p.size())){
         cout << "There is no such patient" << endl;
-        getch();
+	cin.get();
+	cin.get();
         return;
     }
     if (p[np].GetStatus() != 0){
         cout << "The patient is already on another list" << endl;
-        getch();
-        return;
+	cin.get();
+	cin.get();       
+	return;
     }
 
     cout << p[np] << endl;
@@ -85,7 +91,8 @@ void Menu::HospitalAdmission()
     cin >> nd;
     if ((nd <0) || (nd >=  d.size())){
         cout << "There is no such department" << endl;
-        getch();
+	cin.get();
+	cin.get();
         return;
     }
 
@@ -101,17 +108,21 @@ void Menu::HospitalAdmission()
             p[np].SetStatus(1);
             d[nd].SetFreePlaces(d[nd].GetFreePlaces()-1);
             cout << "Patient admitted" << endl;
-            getch();
+	    cin.get();
+	    cin.get();
         }
         else{
+	    
             cout << "This department cannot admit this patient" << endl;
-            getch();
+	    cin.get();
+	    cin.get();
             return;
         }
     }
     else{
         cout << "there are not free places";
-        getch();
+	cin.get();
+	cin.get();
         return;
     }
 }
@@ -143,8 +154,8 @@ void Menu::StartGame()
     }
 
     cout << "                   START GAME               " << endl;
-    getch();
     out.close();
+    cin.get();
     return;
 
 
