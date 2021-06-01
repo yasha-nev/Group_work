@@ -52,7 +52,7 @@ void Button::DisselectButton(int a)
 
 void Button::PrintButtons()
 {
-    for (int i = 0; i<7; i++){
+    for (int i = 0; i<5; i++){
         if (y == i){
             SelectButton(i);
         }
@@ -64,7 +64,7 @@ void Button::PrintButtons()
 
 void Button::UpCursor()
 {
-    if (y + 1 < 7){
+    if (y + 1 < 5){
         y++;
     }
 }
@@ -74,6 +74,23 @@ void Button::DownCursor()
     if (y - 1 > -1){
         y--;
     }
+}
+
+int Button::CheckEvent(int n)
+{
+    switch(n){
+        case(65):
+            DownCursor();
+            break;
+        case(66):
+            UpCursor();
+            break;
+        case(10):
+            return n;
+            break;
+    }
+    return n;
+
 }
 
 int Button::GetY(){

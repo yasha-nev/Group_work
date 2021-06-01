@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         button.cpp \
+        file.cpp \
         main.cpp \
         department.cpp \
         menu.cpp \
@@ -12,6 +13,7 @@ SOURCES += \
 
 HEADERS += \
         button.h \
+        file.h \
         menu.h \
         patient.h\
         department.h

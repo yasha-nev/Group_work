@@ -2,10 +2,17 @@
 
 Department::Department()
 {
-    name = "something";
-    free_places = 5;
-    number_places = 5;
-    index = 0;
+}
+
+Department::Department(string nm, string dis[2], int fp, int np, int ix)
+{
+    name = nm;
+    for (int i = 0; i < 2; i++){
+        diseases[i] = dis[i];
+    }
+    free_places = fp;
+    number_places = np;
+    index = ix;
 }
 
 //Getters
@@ -14,7 +21,7 @@ string Department::GetName()
     return name;
 }
 
-vector<string> Department::GetDiseases()
+string *Department::GetDiseases()
 {
     return diseases;
 }
@@ -45,21 +52,14 @@ void Department::SetName(string a)
     }
 }
 
-void Department::Setdiseases()
+void Department::SetDiseases(string a[])
 {
-    int n;
-    string a;
-    cout << "count of deseases";
-    cin >> n;
-    cout << "New diseases" << endl;
-    diseases.clear();
-    for (int i = 0; i < n; i++){
-        cin >> a;
-        if (a != ""){
-            diseases.push_back(a);
+    for (int i = 0; i < 2; i++){
+        if (a[i] != ""){
+            diseases[i] = a[i];
         }
         else{
-            i--;
+           diseases[i] = "Error";
         }
     }
 }
@@ -98,8 +98,8 @@ ostream& operator <<(ostream &out, const Department &exc)
 {
     out << "Name: " << exc.name << endl;
     out << "Diseases: ";
-    for (int i = 0; i < exc.diseases.size(); i++){
-        out << exc.diseases[i];
+    for (int i = 0; i < 2; i++){
+        out << exc.diseases[i] << " ";
     }
     out << endl;
     out << "Free Places: " << exc.free_places << endl;
@@ -113,15 +113,9 @@ istream& operator >> (istream &in, Department &exc)
     cout << "Name: ";
     in >> exc.name;
 
-    int n;
-    string a;
-    cout << "Count of diseases: ";
-
-    in >> n;
     cout << "diseases: ";
-    for (int i = 0; i < n; i++){
-        in >> a;
-        exc.diseases.push_back(a);
+    for (int i = 0; i < 2; i++){
+        in >> exc.diseases[i];
     }
     cout << "Free Places: ";
     in >> exc.free_places;

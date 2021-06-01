@@ -10,24 +10,25 @@ class Department // отделение больницы
 {
 private:
     string name; // название отделение
-    vector <string> diseases; // болезни, которые лечит данное отделение
+    string diseases[2]; // болезни, которые лечит данное отделение
     int free_places; //количество свободных мест
     int number_places; //всего мест
     int index; // индекс
 
 public:
     Department();
+    Department(string nm, string dis[2], int fp, int np, int ix);
 
     //Getters
     string GetName();
-    vector<string> GetDiseases();
+    string *GetDiseases();
     int GetFreePlaces();
     int GetNumberPlaces();
     int GetIndex();
 
     //Setters
     void SetName(string a);
-    void Setdiseases();
+    void SetDiseases(string a[]);
     void SetFreePlaces(int a);
     void SetNumberPlaces(int a);
     void SetIndex(int a);

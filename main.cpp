@@ -1,66 +1,72 @@
 #include <iostream>
 #include "menu.h"
 #include "button.h"
-#define C "clear"
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-    bool a = 0;
-    int n;
-    Button b;
-    Menu menu;
-    menu.StartGame();
-    while( a == 0){
-        system(C);
-        b.PrintButtons();
-        n = menu.getch();
-        switch(n){
-            case(65):
-                b.DownCursor();
-                break;
-            case(66):
-                b.UpCursor();
-                break;
-            case(10):
-                {
-                    int k = b.GetY();
-                    switch (k) {
-                        case(0):
-                            system(C);
-                            menu.PrintDepartment();             
-                            menu.getch();     
-                            break;
-                        case(1):
-                            system(C);
-                            menu.PrintPatient();
-                            menu.getch();
-                            break;
-                        case(2):
-                            system(C);
-                            menu.AddPatient();
-                            break;
-                        case(3):
-                            system(C);
-                            menu.AddDepartment();
-                            break;
-                        case(4):
-                            system(C);
-                            menu.HospitalAdmission();
-                            break;
-                        case(5):
-                            system(C);
-                            menu.DaySkip();
-			    menu.getch();
-                            break;
+    if (argc < 3){
+        return 0;
+    }
 
-                        case(6):
-                            return 0;
-                            break;
-                    }
-                }
-                break;
+    srand(time(nullptr));
+
+    int n;
+    Button button;
+    Menu menu;
+    menu.StartGame(argv);
+    while(true){
+        system("clear");
+        system("clear");
+        cout << "Days: " << menu.GetTime() << " Healen: " << menu.GetHealen() << " Died: " << menu.GetDied() << endl;
+
+        button.PrintButtons();
+        n = menu.getch();
+        button.CheckEvent(n);
+
+        if (menu.GetDied() > 10){
+            cout << "Game ove" << endl;
+            cout << "You lived "<< menu.GetTime() << "days" << endl;
+            return 0;
+        }
+
+        if (n == 10){
+            int k = button.GetY();
+            switch (k) {
+                case(0):
+                    system("clear");
+                    system("clear");
+                    menu.PrintDepartment();
+                    menu.getch();
+                    break;
+
+                case(1):
+                    system("clear");
+                    system("clear");
+                    menu.PrintPatient();
+                    menu.getch();
+                    break;
+
+                case(2):
+                    system("clear");
+                    system("clear");
+                    menu.HospitalAdmission();
+                    break;
+
+                case(3):
+                    system("clear");
+                    system("clear");
+                    menu.DaySkip();
+                    menu.getch();
+                    break;
+
+                case(4):
+                    menu.finalGame(argv);
+                    return 0;
+            }
         }
     }
 }
