@@ -7,10 +7,8 @@ using namespace std;
 
 class Button{
 private:
-    string titles[7] = {"PrintDepartment",
+    string titles[5] = {"PrintDepartment",
                         "PrintPatient",
-                        "AddPatient",
-                        "AddDepartment",
                         "Hospital Admission",
                         "SkipTime",
                         "Exit"};
@@ -22,6 +20,7 @@ public:
     void PrintButtons();
     void UpCursor();
     void DownCursor();
+    int CheckEvent(int n);
     int GetY();
 };
 

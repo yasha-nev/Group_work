@@ -20,6 +20,7 @@ private:
 
 public:
     Patient();
+    Patient(string fn, string ln, string dis, string type_dis, int st, int dep, int tt, int tl);
     //прототипы, реализация в cpp файле
 
     //getters (функции получения переменных класса)
@@ -36,7 +37,7 @@ public:
     void SetFirstName(string a);
     void SetLastName(string a);
     void SetDiagnosis(string a);
-    void SetTypeOf_disease(string a);
+    void SetTypeOfDisease(string a);
     void SetStatus(int a);
     void SetDepartment(int a);
     void SetTimeTreat(int a);

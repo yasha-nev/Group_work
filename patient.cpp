@@ -2,6 +2,20 @@
 
 Patient::Patient()
 {
+    status = 0;
+    department = -1;
+}
+
+Patient::Patient(string fn, string ln, string dis, string type_dis, int st, int dep, int tt, int tl)
+{
+    first_name = fn;
+    last_name = ln;
+    diagnosis = dis;
+    type_of_disease = type_dis;
+    status = st;
+    department = dep;
+    time_treat = tt;
+    time_left = tl;
 }
 
 //getters реализация
@@ -76,7 +90,7 @@ void Patient::SetDiagnosis(string a)
     }
 }
 
-void Patient::SetTypeOf_disease(string a)
+void Patient::SetTypeOfDisease(string a)
 {
     if (a != ""){
         type_of_disease = a;
