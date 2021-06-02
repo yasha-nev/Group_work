@@ -6,16 +6,16 @@ Patient::Patient()
     department = -1;
 }
 
-Patient::Patient(string fn, string ln, string dis, string type_dis, int st, int dep, int tt, int tl)
+Patient::Patient(string fname, string lname, string dis, string type_dis, int st, int dep, int timet, int timel)
 {
-    first_name = fn;
-    last_name = ln;
+    first_name = fname;
+    last_name = lname;
     diagnosis = dis;
     type_of_disease = type_dis;
     status = st;
     department = dep;
-    time_treat = tt;
-    time_left = tl;
+    time_treat = timet;
+    time_left = timel;
 }
 
 //getters реализация

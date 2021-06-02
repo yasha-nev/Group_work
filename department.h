@@ -6,18 +6,29 @@
 #include <vector>
 using namespace std;
 
-class Department // отделение больницы
+/*! \brief Класс отделение больницы*/
+
+class Department
 {
 private:
-    string name; // название отделение
-    string diseases[2]; // болезни, которые лечит данное отделение
-    int free_places; //количество свободных мест
-    int number_places; //всего мест
-    int index; // индекс
+    string name; /**< строка: название отделения */
+    string diseases[2]; /**< массив строк: болезни, которые может лечить данное отделение */
+    int free_places; /**< целое число: количество свободных мест*/
+    int number_places; /**< целое число: количество мест */
+    int index; /**< целое число: номер тделения */
 
 public:
+    /*! \brief конструктор */
     Department();
-    Department(string nm, string dis[2], int fp, int np, int ix);
+
+    /*! \brief Конструктор
+        \param [in] nm строка: название
+        \param [in] dis массив строк: болезни
+        \param [in] fplace целое число: количество свободных мест
+        \param [in] nplace целое число: количество мест
+        \param [in] ind целое число: номер отделения
+    */
+    Department(string nm, string dis[2], int freep, int numberp, int ind);
 
     //Getters
     string GetName();
@@ -27,11 +38,11 @@ public:
     int GetIndex();
 
     //Setters
-    void SetName(string a);
-    void SetDiseases(string a[]);
-    void SetFreePlaces(int a);
-    void SetNumberPlaces(int a);
-    void SetIndex(int a);
+    void SetName(string nm);
+    void SetDiseases(string dis[]);
+    void SetFreePlaces(int freep);
+    void SetNumberPlaces(int freen);
+    void SetIndex(int ind);
 
     friend ostream& operator << (ostream &out, const Department &exc);
     friend istream& operator >> (istream &in, Department &exc);

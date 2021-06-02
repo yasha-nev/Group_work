@@ -1,7 +1,12 @@
 #include "menu.h"
 
 Menu::Menu()
-{}
+{
+    time = 0;
+    week = 0;
+    healen = 0;
+    died = 0;
+}
 
 int Menu::GetTime()
 {
@@ -52,7 +57,7 @@ void Menu::AddPatient()
         ifstream exc_paient("Patients//exclusiv_people.txt");
         int count_exc;
         exc_paient >> count_exc;
-        randp = getRandomNumber(0, count_exc -1);
+        randp = getRandomNumber(1, count_exc);
         for (int i = 0; i < randp; i++){
             exc_paient >> fname >> lname >> dis >> type_dis;
 
@@ -238,6 +243,11 @@ void Menu::HospitalAdmission()
     while (cursor != 10){
         system("clear");
         system("clear");
+        cout << np << endl;
+        cout << "--------------------" << endl;
+        cout << p[np] << endl;
+        cout << "--------------------" << endl;
+        cout << "Choose department" << endl;
         cout << "--------------------" << endl;
         cout << d[new_d[nd]] << endl;
         cout << "--------------------" << endl;

@@ -4,15 +4,15 @@ Department::Department()
 {
 }
 
-Department::Department(string nm, string dis[2], int fp, int np, int ix)
+Department::Department(string nm, string dis[2], int fplace, int nplace, int ind)
 {
     name = nm;
     for (int i = 0; i < 2; i++){
         diseases[i] = dis[i];
     }
-    free_places = fp;
-    number_places = np;
-    index = ix;
+    free_places = fplace;
+    number_places = nplace;
+    index = ind;
 }
 
 //Getters
