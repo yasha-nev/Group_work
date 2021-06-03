@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
         button.CheckEvent(n);
 
         if (menu.GetDied() > 10){
-            cout << "Game ove" << endl;
-            cout << "You lived "<< menu.GetTime() << "days" << endl;
+            cout << "Game over" << endl;
+            cout << "You lived "<< menu.GetTime() << " days" << endl;
             return 0;
         }
 
